@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Client Search Results</h2>
+    <ul>
+        {% for client in data %}
+        <li>
+        Name: {{ client[1] }}<br>
+        ID/Description: {{ client[2] }}<br>
+        Phone: {{ client[3] }}<br>
+        <a class="btn btn-modify" href="/modify_client_{{client[0]}}">Modify</a><br>
+        <a class="btn btn-checkin" href="/checkin_client_{{client[0]}}">Check In</a><br>
+        <a class="btn btn-addlog" href="/add_client_log_{{client[0]}}">Add Log</a><br>
+        <br>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

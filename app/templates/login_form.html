@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="get-touch-heading">
+    <h2>User Login</h2>
+    <form action="" method="post" name="login_form">
+        {{ form.hidden_tag() }}
+        <p>
+            Username:<br>
+            {{ form.username(size=20) }}
+            {% for error in form.username.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p>
+            Password:<br>
+            {{ form.password(size=20) }}
+            {% for error in form.password.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p>{{ form.remember_me }} Remember Me</p>
+        <p><input type="submit" value="Sign In"></p>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Add Client Log</h2>
+        <form action="" method="post" name="add_client_log">
+        {{ form.hidden_tag() }}
+        <p>
+            Service ID:<br>
+            {{ form.service_id(size=20) }}
+            {% for error in form.service_id.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p>
+            Description:<br>
+            {{ form.description(size=20) }}
+            {% for error in form.description.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p>
+            Notes:<br>
+            {{ form.notes(size=20) }}
+            {% for error in form.notes.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p><input type="submit" value="Add Client Log"></p>
+    <h2>Cancel</h2>
+        <a class="btn btn-cancel" href="/client_search_form">Cancel</a>
+    </form>
+{% endblock %}

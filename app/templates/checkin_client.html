@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Check In Client</h2>
+    <ul>
+        <li>
+        {% if data_set|length > 0 %}
+        <h4> Shelter Service </h4>
+        {% for data in data_set %}
+        Description: {{ data[2] }}<br>
+        Hours: {{ data[3] }}<br>
+        Conditions of Use: {{ data[4] }}<br>
+        Male Bunks Available: {{ data[8] }}<br>
+        Female Bunks Available: {{ data[9] }}<br>
+        Mixed Bunks Available: {{ data[10] }}<br>
+        <form action="" method="post" name="check_in_client">
+        {{ form.hidden_tag() }}
+        {{ form.bunk_type }}<br>
+        {% endfor %}
+        <br>
+        <br>
+        {% endif %}
+        {% if pantry_set|length > 0 %}
+        {% for pantry in pantry_set %}
+        <h4> Pantry Service </h4>
+        Description: {{ pantry[2] }}<br>
+        Hours: {{ pantry[3] }}<br>
+        Conditions of Use: {{ pantry[4] }}<br>
+        {% endfor %}
+        <br>
+        <br>
+        {% endif %}
+        {% if soup_set|length > 0 %}
+        {% for soup in soup_set %}
+        <h4> Soup Kitchen Service </h4>
+        Description: {{ soup[2] }}<br>
+        Hours: {{ soup[3] }}<br>
+        Conditions of Use: {{ soup[4] }}<br>
+        Seats Available: {{ soup[5] }}<br>
+        Total Capacity: {{ soup[6] }}<br>
+        {% endfor %}
+        <br>
+        <br>
+        {% endif %}
+        Select Service Type: {{ form.service_type }}
+        <br>
+        <input type="submit" value="Check In Client">
+        </form>
+        </li>
+        
+    </ul>
+{% endblock %}

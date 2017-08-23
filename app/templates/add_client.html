@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Add Client</h2>
+        <form action="" method="post" name="add_client_form">
+        {{ form.hidden_tag() }}
+        <p>
+            Full Name:<br>
+            {{ form.full_name(size=20) }}
+            {% for error in form.full_name.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p>
+            Id or Description:<br>
+            {{ form.id_or_desc(size=20) }}
+            {% for error in form.id_or_desc.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p>
+            Phone Number:<br>
+            {{ form.phone(size=20) }}
+            {% for error in form.phone.errors %}
+              <b>{{ error }}</b>
+            {% endfor %}            
+        </p>
+        <p><input type="submit" value="Add Client"></p>
+    <h2>Cancel</h2>
+        <a class="btn btn-cancel" href="/client_search_form">Cancel</a>
+    </form>
+{% endblock %}

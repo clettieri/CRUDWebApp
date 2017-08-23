@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Bunks Available</h2>
+    <ul>
+        {% for site in data %}
+        <li>
+        Location: {{ site[1] }}<br>
+        Hours: {{ site[2] }}<br>
+        Conditions: {{ site[3] }}<br>
+        Male Bunks Available: {{ site[8] }}<br>
+        Female Bunks Available: {{ site[9] }}<br>
+        Mixed Bunks Available: {{ site[10] }}<br>
+        <br>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

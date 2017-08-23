@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Request Status Report</h2>
+        <ul>
+        {% for data in data_set %}
+        <li>
+        Item Request ID: {{ data[0] }}<br>
+        Item ID: {{ data[1] }}<br>
+        User ID: {{ data[2] }}<br>
+        Units: {{ data[3] }}<br>
+        Status: {{ data[4] }}<br>
+        <a class="btn btn-cancel" href="/cancel_status_report_{{data[0]}}">Cancel Item Request</a><br>
+        <br>
+        </li>
+        {% endfor %}
+    </ul>
+                                            
+{% endblock %}

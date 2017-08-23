@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Client Search</h2>
+        <form action="" method="post" name="client_search_form">
+            {{ form.hidden_tag() }}
+            <p>
+                Client Search:<br>
+                {{ form.search(size=20) }}
+                {% for error in form.search.errors %}
+                  <b>{{ error }}</b>
+                {% endfor %}            
+            </p>
+            <input type="submit" value="Search">
+        </form>
+    <h2> Add New Client </h2>
+    <a class="btn btn-add" href="/add_client">Add New Client</a>
+{% endblock %}
